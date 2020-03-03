@@ -32,3 +32,23 @@ UCyan='\033[4;36m'        # Cyan
 UWhite='\033[4;37m'       # White
 
 printf "${Color_Off}"
+
+if [ $# -eq 0 ]
+  then
+    echo "Use: git-script.sh [repository name]"
+  else
+    printf "${Cyan}[INFO]${Color_Off} Creating repository $1...\n"
+    if [ ! -d $1 ]
+      then
+        printf "${Yellow}[WARN]${Color_Off} Directory $1 not found, creating a new one...\n"
+        mkdir $1
+    fi
+
+    # go to repo dir
+    cd $1
+
+    # initialize repo here
+    git init
+
+    printf "${Green}[DONE]${Color_Off} Repository $1 created!\n"
+fi
