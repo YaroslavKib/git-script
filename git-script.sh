@@ -50,5 +50,28 @@ if [ $# -eq 0 ]
     # initialize repo here
     git init
 
+    printf "\nCurrent local user information:\n"
+
+    printf "User:\t${UPurple}" && git config user.name
+    printf "${Color_Off}Email:\t${UPurple}" && git config user.email
+
+    printf "${Color_Off}\nNew local user name (leave empty for the current one): "
+    read -p "" newUser
+
+    # if newUser variable is not empty set it then
+    if [ ! -z "$newUser" ]
+      then
+        git config user.name "$newUser"
+    fi
+
+    printf "${Color_Off}New local email (leave empty for the current one): "
+    read -p "" newEmail
+
+    # almost the same as above
+    if [ ! -z "$newEmail" ]
+      then
+        git config user.email "$newEmail"
+    fi
+
     printf "${Green}[DONE]${Color_Off} Repository $1 created!\n"
 fi
