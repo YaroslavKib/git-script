@@ -75,7 +75,7 @@ if [ $# -eq 0 ]
 
     printf "${Cyan}[INFO]${Color_Off} Applying attributes to $1...\n"
     
-    # creata .gitattributes file and commit it
+    # create .gitattributes file and commit it
     printf "* text=auto\n" > .gitattributes
     git add .gitattributes
     git commit -m "Initial setup"
