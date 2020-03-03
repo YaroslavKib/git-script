@@ -73,5 +73,12 @@ if [ $# -eq 0 ]
         git config user.email "$newEmail"
     fi
 
+    printf "${Cyan}[INFO]${Color_Off} Applying attributes to $1...\n"
+    
+    # creata .gitattributes file and commit it
+    printf "* text=auto\n" > .gitattributes
+    git add .gitattributes
+    git commit -m "Initial setup"
+
     printf "${Green}[DONE]${Color_Off} Repository $1 created!\n"
 fi
